@@ -1,0 +1,96 @@
+project:
+  type: website
+  output-dir: _output
+  render:
+    - paper.qmd
+
+# Title
+title: "Title of an awesome paper"
+
+# Authors
+author:
+  - name: First Author
+    orcid: 0000-0000-0000-0000
+    email: first.author@example.com
+    affiliations: 
+      - ref: affiliation1
+    corresponding: true
+  - name: Second Author
+    orcid: 0000-0000-0000-0000
+    affiliations: 
+      - ref: affiliation2
+      - ref: affiliation3
+  - name: Third Author
+    orcid: 0000-0000-0000-0000
+    affiliations:
+      - ref: affiliation1
+
+# Author affiliations
+affiliations:
+  - id: affiliation1
+    number: 1
+    name: Affiliation 1
+    city: City 1
+    state: State 1
+    country: Country 1
+  - id: affiliation2
+    number: 2
+    name: Affiliation 2
+    city: City 2
+    state: State 2
+    country: Country 2
+  - id: affiliation3
+    number: 3
+    name: Affiliation 3
+    city: City 3
+    state: State 3
+    country: Country 3
+  
+# Keywords
+keywords:
+  - keyword 1
+  - keyword 2
+  - keyword 3
+
+# Abstract
+abstract: |
+  Abstract of the paper that will blow your mind.
+
+bibliography: references.bib
+
+# website:
+  # Uncomment to add links to the right of the navbar
+  # navbar:
+    # right:
+    #   - icon: github
+    #     href: https://github.com/user/repo
+    #   - icon: twitter-x
+    #     href: https://twitter.com/user
+  # Uncomment to add a sidebar with a title and logo
+  # sidebar:
+  #   alignment: left
+  #   title: "Sidebar"
+  #   logo: logo.png
+
+format:
+  html:
+    theme: cosmo
+    default-image-extension: png
+    toc: true
+    filters:
+      - maintext-filter.lua
+      - sitext-filter.lua
+  pdf: 
+    documentclass: scrartcl
+    numbersections: true
+    template: template.tex
+    cite-method: biblatex
+    default-image-extension: pdf
+    include-in-header:
+      - file: _preamble.tex
+    biblio-style: vancouver
+    keep-tex: true
+    filters:
+      - color-text-span.lua
+      - maintext-filter.lua
+      - sitext-refsection.lua

@@ -1,0 +1,34 @@
+::: {.maintext}
+
+# Introduction
+
+{{< include _intro.qmd >}}
+
+# Results
+
+<!-- Paper results go here -->
+<!-- You can add them as separate .qmd files and include them here -->
+<!-- Use underscore at the beginning of the file name -->
+<!-- For example, _results.qmd -->
+<!-- {{< include _results.qmd >}} -->
+
+# Discussion
+
+<!-- {{< include _discussion.qmd >}} -->
+
+# Materials and Methods {.unnumbered}
+
+# Acknowledgements {.unnumbered}
+
+{{< include _acknowledgements.qmd >}}
+:::
+
+::: {.sitext}
+# Supplementary Materials {.unnumbered}
+
+<!-- Add your supplemental information here -->
+<!-- Use underscore at the beginning of the file name -->
+<!-- For example, _supplemental_info.qmd -->
+{{< include _supplemental_info.qmd >}}
+
+:::
