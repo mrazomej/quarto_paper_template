@@ -1,0 +1,5 @@
+:::: {.sitext}
+# Supplementary Materials {.unnumbered}
+
+{{< include _supplemental_info.qmd >}}
+::::

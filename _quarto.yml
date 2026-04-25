@@ -1,8 +1,12 @@
 project:
   type: website
   output-dir: _output
+  resources:
+    - paper.pdf
+    - supplementary.pdf
   render:
     - paper.qmd
+    - supplementary.qmd
 
 # Title
 title: "Title of an awesome paper"
@@ -12,12 +16,12 @@ author:
   - name: First Author
     orcid: 0000-0000-0000-0000
     email: first.author@example.com
-    affiliations: 
+    affiliations:
       - ref: affiliation1
     corresponding: true
   - name: Second Author
     orcid: 0000-0000-0000-0000
-    affiliations: 
+    affiliations:
       - ref: affiliation2
       - ref: affiliation3
   - name: Third Author
@@ -45,7 +49,7 @@ affiliations:
     city: City 3
     state: State 3
     country: Country 3
-  
+
 # Keywords
 keywords:
   - keyword 1
@@ -53,24 +57,17 @@ keywords:
   - keyword 3
 
 # Abstract
-abstract: |
-  Abstract of the paper that will blow your mind.
 
 bibliography: references.bib
 
-# website:
-  # Uncomment to add links to the right of the navbar
-  # navbar:
-    # right:
-    #   - icon: github
-    #     href: https://github.com/user/repo
-    #   - icon: twitter-x
-    #     href: https://twitter.com/user
-  # Uncomment to add a sidebar with a title and logo
-  # sidebar:
-  #   alignment: left
-  #   title: "Sidebar"
-  #   logo: logo.png
+website:
+  page-navigation: true
+  navbar:
+    left:
+      - text: "Main Text"
+        file: paper.qmd
+      - text: "Supplementary Material"
+        file: supplementary.qmd
 
 format:
   html:
@@ -78,9 +75,11 @@ format:
     default-image-extension: png
     toc: true
     filters:
+      - tikz.lua
       - maintext-filter.lua
       - sitext-filter.lua
-  pdf: 
+  pdf:
+    pdf-engine: xelatex
     documentclass: scrartcl
     numbersections: true
     template: template.tex
@@ -88,9 +87,12 @@ format:
     default-image-extension: pdf
     include-in-header:
       - file: _preamble.tex
-    biblio-style: vancouver
-    keep-tex: true
+    biblio-style: ieee
+    keep-tex: false
     filters:
+      - tikz.lua
+      - strip-yaml-frontmatter.lua
+      - abstract-filter.lua
       - color-text-span.lua
       - maintext-filter.lua
       - sitext-refsection.lua

@@ -1,4 +1,13 @@
-::: {.maintext}
+:::: {.abstract}
+
+:::: {.content-visible when-format="html"}
+<div class="block-title">Abstract</div>
+::::
+
+TBD
+
+::::
+:::: {.maintext}
 
 # Introduction
 
@@ -6,29 +15,17 @@
 
 # Results
 
-<!-- Paper results go here -->
-<!-- You can add them as separate .qmd files and include them here -->
-<!-- Use underscore at the beginning of the file name -->
-<!-- For example, _results.qmd -->
 <!-- {{< include _results.qmd >}} -->
 
 # Discussion
 
 <!-- {{< include _discussion.qmd >}} -->
 
-# Materials and Methods {.unnumbered}
+# Data and code availability {.unnumbered}
+
+Describe where readers can access your data, code, and reproducibility artifacts.
 
 # Acknowledgements {.unnumbered}
 
 {{< include _acknowledgements.qmd >}}
-:::
-
-::: {.sitext}
-# Supplementary Materials {.unnumbered}
-
-<!-- Add your supplemental information here -->
-<!-- Use underscore at the beginning of the file name -->
-<!-- For example, _supplemental_info.qmd -->
-{{< include _supplemental_info.qmd >}}
-
-:::
+::::

@@ -271,6 +271,13 @@ $endif$
 $if(pagestyle)$
 \pagestyle{$pagestyle$}
 $endif$
+
+% Lower the position of page numbers
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\setlength{\footskip}{100pt} % Increase this value to lower the page numbers
+
 $pandoc.tex()$
 $if(lang)$
 \ifLuaTeX
@@ -317,8 +324,8 @@ $endif$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $if(biblatex)$
-\usepackage[
-    $if(biblio-style)$style=$biblio-style$,$endif$
+% Biblatex is already loaded by Quarto, so we just configure it
+\ExecuteBibliographyOptions{
     sorting=none,				% Do not sort bibliography
 	url=false, 					% Do not show url in reference
 	doi=false, 					% Do not show doi in reference
@@ -326,7 +333,7 @@ $if(biblatex)$
 	eprint=false, 			    % Do not show eprint link in reference
 	maxbibnames=9, 			    % Include up to 9 names in citation
 	firstinits=true,
-]{biblatex}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $for(bibliography)$
 \addbibresource{$bibliography$}
@@ -401,8 +408,8 @@ $endfor$
 
 % Add corresponding author
 $for(by-author)$
-$if(by-author.corresponding)$
-\affil[*]{$by-author.email$}
+$if(by-author.email)$
+\affil[*]{Corresponding author: $by-author.email$}
 $endif$
 $endfor$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
