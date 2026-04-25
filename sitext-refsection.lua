@@ -23,7 +23,7 @@ function Div(el)
             -- Define multi-line string for the end of the custom LaTeX block
             local sitextEnd = [[
 % Print supplemental references changing the title
-\printbibliography[title={Supplemental References},
+\printbibliography[title={Reference},
 section=\therefsection]
 \end{refsection}
 ]]
